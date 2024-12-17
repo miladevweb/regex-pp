@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES2022", // ES6 version or higher
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "./dist", // Output directory
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+
+    // Define your base directory and paths
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+
+  // These files will be included in the compilation
+  "include": ["src/**/*"],
+
+  // These files will not be compiled
+  "exclude": ["node_modules", "**/*.test.ts"]
+}
