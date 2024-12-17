@@ -96,6 +96,7 @@ console.log(regexBrackets.test('apple 123 abc')) // true
 
 console.log('-----')
 
+// Word Range
 const regexLetterRange = /[a-zA-Z]/
 console.log(regexLetterRange.test('a')) // true
 console.log(regexLetterRange.test('A')) // true
@@ -103,6 +104,7 @@ console.log(regexLetterRange.test('0')) // false
 
 console.log('-----')
 
+// Number Range
 const regexNumberRange = /[0-9]/
 console.log(regexNumberRange.test('0')) // true
 console.log(regexNumberRange.test('9')) // true
