@@ -1,3 +1,5 @@
+// IMPORTANT: When we use a regex with the match method, we can pass flags to it
+
 // g - Global search
 const regexGlobal = /cat/g
 console.log(regexGlobal.test('cat')) // true
