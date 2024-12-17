@@ -195,3 +195,27 @@ console.log('-----')
 const regexWithoutSpace = /\S+/
 console.log(regexWithoutSpace.test(' ')) // false
 console.log(regexWithoutSpace.test('@$#')) // true
+
+console.log('-----')
+
+// \b Matches a word boundary
+const regexWordBoundary = /\bcat\b/ // matches cat as a whole word
+console.log(regexWordBoundary.test('cat')) // true
+console.log(regexWordBoundary.test('a cat runs')) // true cuz it's a separate word
+console.log(regexWordBoundary.test('cats')) // false
+console.log(regexWordBoundary.test('scatter')) // false
+
+console.log('-----')
+
+// \B Matches the position NOT a word boundary
+const regexWordNoBoundary = /\Bcat\B/
+console.log(regexWordNoBoundary.test('scatter')) // true
+console.log(regexWordNoBoundary.test('a cat runs')) // false
+console.log(regexWordNoBoundary.test('cats')) // false
+
+console.log('-----')
+
+// \n Matches a newline
+const regexNewline = /\ncat\n/
+console.log(regexNewline.test('cat')) // false
+console.log(regexNewline.test('dog\ncat\ndog')) // true
