@@ -145,10 +145,15 @@ console.log(regexDigit.test('01 20')) // true
 
 console.log('-----')
 
-const regexOneDigit = /^\d$/ // matches with digits of length 1
+const regexOneDigit = /^\d$/ // matches digits of length 1
 console.log(regexOneDigit.test('0')) // true
 console.log(regexOneDigit.test('10')) // false
 console.log(regexOneDigit.test('0.1')) // false
+
+const regexDigitsWithoutSpace = /^\d+$/ // matches digits one digit long
+console.log(regexDigitsWithoutSpace.test('1')) // true
+console.log(regexDigitsWithoutSpace.test('123')) // true
+console.log(regexDigitsWithoutSpace.test('123 456')) // false
 
 console.log('-----')
 
@@ -219,3 +224,31 @@ console.log('-----')
 const regexNewline = /\ncat\n/
 console.log(regexNewline.test('cat')) // false
 console.log(regexNewline.test('dog\ncat\ndog')) // true
+
+console.log('-----')
+
+// .* Matches 0 or more of any character (except newline)
+const regexGreedy = /.*cat/
+console.log(regexGreedy.test('cat')) // true
+console.log(regexGreedy.test('cats')) // true
+console.log(regexGreedy.test('dog and cat')) // true
+console.log(regexGreedy.test('bird and ca')) // false
+
+console.log('-----')
+
+// .*? Matches as little as possible of any character (except newline)
+const regexNonGreedy = /<p>.*?<\/p>/g
+console.log(regexNonGreedy.test('<p>hello</p>')) // true
+console.log(regexNonGreedy.test('<p>hello</p> <p>world</p>')) // true
+
+// r01: ['<p>this</p>', '<p>is</p>', '<p>new</p>']
+const r01 = '<p>this</p><p>is</p><p>new</p>'.match(regexNonGreedy)!
+
+// If we use the greedy version:
+// we'll get ['<p>this</p><p>is</p><p>new</p>']
+
+console.log('-----')
+
+const regexTag = /<.*?>/g
+console.log(regexTag.test('<p>hello</p>')) // true
+const r02 = '<p>hello</p> <p>world</p>'.match(regexTag)! // ['<p>', '</p>', '<p>', '</p>']
